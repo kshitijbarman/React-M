@@ -1,0 +1,9 @@
+import {configureStore} from '@reduxjs/toolkit'
+import cartSystem from './../counterSlice/slice';
+
+ const store= configureStore({
+    reducer:{
+        cart:cartSystem
+    }
+})
+export default store

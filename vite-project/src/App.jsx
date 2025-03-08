@@ -5,6 +5,7 @@ import SignUp from './components/SignUp';
 import LazyLoadingImage from './components/LazyLoadingImage';
 // import Api from './components/Api';
 import SimpleForm from './components/SimpleForm';
+import Moment from './components/Moment';
 
 const App = () => {
   // const [data, setData] = useState([]);
@@ -20,9 +21,10 @@ const App = () => {
       {/* <Counter /> */}
       {/* <Login /> */}
       {/* <SignUp /> */}
-      {/* <LazyLoadingImage /> */}
+      <LazyLoadingImage />
       {/* <Api/> */}
-      <SimpleForm/>
+      {/* <SimpleForm/> */}
+      {/* <Moment/> */}
     </div>
   );
 };

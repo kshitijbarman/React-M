@@ -3,8 +3,11 @@ import { FaCartShopping } from "react-icons/fa6";
 import { IoMdSearch } from "react-icons/io";
 import { MdAccountCircle } from "react-icons/md";
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Navbar=()=>{
+    const cartItem = useSelector(state=>state.cart.items)
+    const cartLength = cartItems.length; 
     return(
         <div className='w-full bg-blue-400 py-2 flex justify-between px-5 sticky'>
             <div className='pt-2 '>

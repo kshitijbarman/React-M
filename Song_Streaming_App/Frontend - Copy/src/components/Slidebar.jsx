@@ -102,15 +102,19 @@
 
 import React from "react";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
-import UseDarkMode from './UseDarkMode';
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../redux/themeSlice";
 
 
 const Slidebar = () => {
-  const {toggle,prevalue} =UseDarkMode()
+   const darkMode = useSelector((state) => state.theme.darkMode); 
+    const dispatch = useDispatch();
+  
   return (
     <Sidebar className='h-[80vh] rounded-lg '>
-      <Menu className={`pl-5 text-sm space-y-1 ${toggle ? 'bg-[#f5f5f5]' : 'bg-black text-white'}`}>
-        <h2 className="text-center py-1 text-gray-800">BROWSER</h2>
+      {/* <Menu className={`pl-5 text-sm space-y-1 ${darkMode ? 'bg-[#f5f5f5]' : 'bg-black text-white'}`} > */}
+      <Menu className={`pl-5 text-sm space-y-1 ${darkMode ? 'bg-[#f5f5f5]' : 'bg-black text-white'}`} >
+        <h2 className={`text-center py-1 pt-20 text-gray-800 ${darkMode ? 'bg-[#f5f5f5]' : 'bg-black text-white'}`}>BROWSER</h2>
         <MenuItem className="py-1"> New Releases </MenuItem>
         <MenuItem className="py-1"> Top Charts </MenuItem>
         <MenuItem className="py-1"> Top Playlists </MenuItem>
@@ -118,7 +122,7 @@ const Slidebar = () => {
         <MenuItem className="py-1"> Top Artists </MenuItem>
         <MenuItem className="py-1"> Radio </MenuItem>
 
-        <h2 className="py-1 text-center text-gray-800">LIBRARY</h2>
+        <h2 className={`py-1 text-center text-gray-800 ${darkMode ? 'bg-[#f5f5f5]' : 'bg-black text-white'}`}>LIBRARY</h2>
         <MenuItem className="py-1"> History </MenuItem>
         <MenuItem className="py-1"> Liked Songs </MenuItem>
         <MenuItem className="py-1"> Albums </MenuItem>

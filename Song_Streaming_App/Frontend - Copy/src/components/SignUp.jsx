@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { data, NavLink, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setData } from "../redux/signupDataSlice";
 
 const SignUpForm = () => {
+  const dispatch =useDispatch()
   const [formData,setFormData]=useState({
     name:'',
     email:'',
@@ -16,7 +19,11 @@ const SignUpForm = () => {
   const handleSubmit=(e)=>{
      e.preventDefault()
      console.log(formData)
-     localStorage.setItem('userInfo',JSON.stringify(formData))
+    //  localStorage.setItem('userInfo',JSON.stringify(formData))
+    // dispatch(setData(formData))
+    dispatch(setData({ name: formData.name, email: formData.email, password: formData.password }));
+
+    alert("data saved in redux")
      setFormData({
      name:'',
      email:'',

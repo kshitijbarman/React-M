@@ -51,7 +51,7 @@ const App = () => {
     },
     {
       path: "/",
-      element: isSignUp ? <Home /> : <LoginPage /> // Moved inside App to access isSignUp
+      element: isSignUp ? <Home /> : <Home /> // Moved inside App to access isSignUp
     }
   ]);
 

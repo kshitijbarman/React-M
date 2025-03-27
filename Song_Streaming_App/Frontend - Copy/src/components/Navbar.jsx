@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdKeyboardArrowDown, MdDarkMode } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../redux/themeSlice";
+import { IoIosSunny } from "react-icons/io";
+import { setSearchQuery } from "../redux/searchSlice";
 
 const Navbar = () => {
   const darkMode = useSelector((state) => state.theme.darkMode); 
   const dispatch = useDispatch();
+  const [search,setSearch]=useState('')
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+    dispatch(setSearchQuery(e.target.value)); // Dispatch action
+  };
 
   return (
     <div
       className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-3 px-5 shadow-md 
-        ${darkMode ? "bg-[#f5f5f5] " : "bg-black text-white"}`}
+        ${darkMode ? "bg-[#f5f5f5] " : "bg-black text-white border-b "}`}
     >
       <div className="lg:flex items-center">
         <div className="flex gap-2 items-center">
@@ -33,6 +41,7 @@ const Navbar = () => {
           type="text"
           name="search"
           id="search"
+          onChange={handleSearch}
           className="py-2 px-4 w-[40vw] rounded-3xl border border-gray-300 text-black outline-none"
           placeholder="⌕ Search "
           autoComplete="off"
@@ -44,7 +53,7 @@ const Navbar = () => {
         <div className="flex items-center">
          
           <button onClick={() => dispatch(toggleTheme())} className="pr-5 text-2xl">
-          {darkMode?<MdDarkMode/>:<MdKeyboardArrowDown/>}
+          {darkMode?<MdDarkMode/>:<IoIosSunny/>}
             {/* <MdDarkMode /> */}
           </button>
 

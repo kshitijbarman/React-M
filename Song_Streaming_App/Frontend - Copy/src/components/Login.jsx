@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
 import { NavLink,useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 
 const LoginForm=()=>{
+
+    const navigate = useNavigate(); 
+    const localData = useSelector((state) => state.data); 
+    
     const [formData,setFormData]=useState({
      email:'',
      password:''
     })
-    const Navigate= useNavigate()
 
     const handleChange=(e)=>{
        setFormData({...formData,[e.target.name]:e.target.value})
@@ -15,24 +19,46 @@ const LoginForm=()=>{
 
     const handleSubmit=(e)=>{
         e.preventDefault()
-        const localData=JSON.parse(localStorage.getItem('userInfo'))
-        console.log(localData)
-        if(localData){
-            if(localData.email===formData.email&&localData.password===formData.password){
-                localStorage.setItem("isAuthenticated", "true");
-                Navigate('/')
-            }
-            else{
-                alert("Enter Correct Email Password")
-            }
+        console.log("Stored User Data:", formData);
+        console.log("Stored User Data:", localData);
+
+        
+      
+        // if(localData){
+        //     if(localData.email===formData.email&&localData.password===formData.password){
+        //         localStorage.setItem("isAuthenticated", "true");
+        //         navigate('/')
+        //     }
+        //     else{
+        //         alert("Enter Correct Email Password")
+        //     }
+        // }
+        // else{
+        //     alert("SignUp First")
+        // }
+
+        if (!localData.email || !localData.password) {
+            alert("SignUp First");
+            return;
         }
-        else{
-            alert("SignUp First")
+
+        // Validate credentials
+        if (localData.email === formData.email && localData.password === formData.password) {
+            localStorage.setItem("isAuthenticated", "true");
+            navigate("/");
+        } else {
+            alert("Enter Correct Email Password");
         }
+
+
+        
         setFormData({
          email:'',
          password:''
         })
+
+
+        
        
     }
     return (

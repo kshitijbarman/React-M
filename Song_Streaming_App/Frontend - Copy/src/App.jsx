@@ -34,6 +34,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './pages/Home';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
+import PlayListPage from './pages/PlayListPage';
 
 const App = () => {
   // const isSignUp = localStorage.getItem('userInfo') ? true : false;
@@ -46,13 +47,18 @@ const App = () => {
       element: <SignUpPage />
     },
     {
+      path: "/playlist",
+      element: <PlayListPage/>
+    },
+    {
       path: "/login",
       element: <LoginPage />
     },
     {
       path: "/",
       element: isSignUp ? <Home /> : <Home /> // Moved inside App to access isSignUp
-    }
+    },
+   
   ]);
 
   return <RouterProvider router={router} />;

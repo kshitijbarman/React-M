@@ -31,7 +31,7 @@ const Navbar = () => {
 
         <ul className="flex md:hidden lg:flex gap-3 text-base font-semibold pl-5">
           <li className="cursor-pointer text-2xl lg:text-base">Music</li>
-          <li className="cursor-pointer text-2xl lg:text-base">Podcasts</li>
+          <NavLink to='/playlist'><li className="cursor-pointer text-2xl lg:text-base">PlayList</li></NavLink>
           <li className="cursor-pointer hidden lg:block">Pro</li>
         </ul>
       </div>

@@ -551,6 +551,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import Slidebar from "./Slidebar";
+import { FcLike } from "react-icons/fc";
+import { IoIosAddCircleOutline } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../redux/themeSlice";
 
@@ -645,6 +647,7 @@ const Main = () => {
                   >
                     Play
                   </button>
+                <button><IoIosAddCircleOutline /></button>
                   <span className="text-black">{song.name}</span>
                 </li>
               ))

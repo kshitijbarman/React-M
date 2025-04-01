@@ -104,6 +104,8 @@ import React from "react";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../redux/themeSlice";
+import { NavLink } from "react-router-dom";
+import PlayListPage from './../pages/PlayListPage';
 
 
 const Slidebar = () => {
@@ -123,11 +125,11 @@ const Slidebar = () => {
         <MenuItem className="py-1"> Radio </MenuItem>
 
         <h2 className={`py-1 text-center text-gray-800 ${darkMode ? 'bg-[#f5f5f5]' : 'bg-black text-white'}`}>LIBRARY</h2>
-        <MenuItem className="py-1"> History </MenuItem>
-        <MenuItem className="py-1"> Liked Songs </MenuItem>
-        <MenuItem className="py-1"> Albums </MenuItem>
+        <NavLink to='/artist'> <MenuItem className="py-1"> Artists </MenuItem></NavLink>
+        <NavLink to='/playlist'> <MenuItem className="py-1" > Liked Songs </MenuItem></NavLink>
+        <NavLink to='/album'><MenuItem className="py-1"> Albums </MenuItem></NavLink>
         <MenuItem className="py-1"> Podcasts </MenuItem>
-        <MenuItem className="py-1"> Artists </MenuItem>
+        <MenuItem className="py-1"> History </MenuItem>
       </Menu>
     </Sidebar>
   );

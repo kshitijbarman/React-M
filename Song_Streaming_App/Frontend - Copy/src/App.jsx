@@ -35,6 +35,8 @@ import Home from './pages/Home';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
 import PlayListPage from './pages/PlayListPage';
+import ArtistPage from './pages/ArtistPage';
+import AlbumDetails from './pages/AlbumDetails';
 
 const App = () => {
   // const isSignUp = localStorage.getItem('userInfo') ? true : false;
@@ -49,6 +51,14 @@ const App = () => {
     {
       path: "/playlist",
       element: <PlayListPage/>
+    },
+    {
+      path: "/artist",
+      element: <ArtistPage/>
+    },
+    {
+      path: "/album",
+      element: <AlbumDetails/>
     },
     {
       path: "/login",

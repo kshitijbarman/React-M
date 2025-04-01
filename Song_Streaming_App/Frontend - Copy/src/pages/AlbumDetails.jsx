@@ -1,8 +1,13 @@
 import React from 'react'
+import Album from '../components/Album'
+import Navbar from '../components/Navbar'
 
 const AlbumDetails = () => {
   return (
-    <div>AlbumDetails</div>
+    <div>
+      <Navbar/>
+    <Album/>
+    </div>
   )
 }
 

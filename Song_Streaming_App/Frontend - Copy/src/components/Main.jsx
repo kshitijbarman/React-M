@@ -143,8 +143,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Slidebar from "./Slidebar";
-import { FcLike } from "react-icons/fc";
+// import { FcLike } from "react-icons/fc";
 import { IoIosAddCircleOutline } from "react-icons/io";
+import { CiHeart } from "react-icons/ci";
 import { useDispatch, useSelector } from "react-redux";
 import { addToPlaylist } from "../redux/likeSlice";
 import Play from "./Play";
@@ -228,7 +229,7 @@ const Main = () => {
                   Play
                 </button>
                 <button className="text-2xl cursor-pointer" onClick={() => sendData(song)}>
-                  <FcLike />
+                  <CiHeart />
                 </button>
                 <span className="text-black">{song.name}</span>
               </li>

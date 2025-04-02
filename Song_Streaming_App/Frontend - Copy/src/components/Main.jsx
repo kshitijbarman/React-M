@@ -143,9 +143,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Slidebar from "./Slidebar";
-// import { FcLike } from "react-icons/fc";
 import { IoIosAddCircleOutline } from "react-icons/io";
-import { CiHeart } from "react-icons/ci";
+import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { addToPlaylist } from "../redux/likeSlice";
 import Play from "./Play";
@@ -159,6 +159,7 @@ const Main = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [currentTrack, setCurrentTrack] = useState(null);
+  const [liked,setLiked]=useState(false)
 
   useEffect(() => {
     const fetchSongs = async () => {
@@ -200,6 +201,10 @@ const Main = () => {
     alert("Song added to playlist");
   };
 
+  const handleLike=(id)=>{
+    setLiked(!liked)
+  }
+
   return (
     <div className={`flex pb-20 ${darkMode ? "bg-[#f5f5f5]" : "bg-black text-white"}`}>
       <div className="hidden xl:block fixed">
@@ -228,8 +233,8 @@ const Main = () => {
                 >
                   Play
                 </button>
-                <button className="text-2xl cursor-pointer" onClick={() => sendData(song)}>
-                  <CiHeart />
+                <button className="text-2xl cursor-pointer" onClick={() =>{sendData(song);handleLike(song.id)}}>
+                  <FaRegHeart  className={liked?"bg-red-600":"bg-white"}/>
                 </button>
                 <span className="text-black">{song.name}</span>
               </li>

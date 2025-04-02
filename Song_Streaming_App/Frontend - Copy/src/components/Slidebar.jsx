@@ -113,16 +113,16 @@ const Slidebar = () => {
     const dispatch = useDispatch();
   
   return (
-    <Sidebar className='h-[80vh] rounded-lg '>
+    <Sidebar className='h-[57vh] rounded-lg pt-20'>
       {/* <Menu className={`pl-5 text-sm space-y-1 ${darkMode ? 'bg-[#f5f5f5]' : 'bg-black text-white'}`} > */}
       <Menu className={`pl-5 text-sm space-y-1 ${darkMode ? 'bg-[#f5f5f5]' : 'bg-black text-white'}`} >
-        <h2 className={`text-center py-1 pt-20 text-gray-800 ${darkMode ? 'bg-[#f5f5f5]' : 'bg-black text-white'}`}>BROWSER</h2>
+        {/* <h2 className={`text-center py-1 pt-20 text-gray-800 ${darkMode ? 'bg-[#f5f5f5]' : 'bg-black text-white'}`}>BROWSER</h2>
         <MenuItem className="py-1"> New Releases </MenuItem>
         <MenuItem className="py-1"> Top Charts </MenuItem>
         <MenuItem className="py-1"> Top Playlists </MenuItem>
         <MenuItem className="py-1"> Podcasts </MenuItem>
         <MenuItem className="py-1"> Top Artists </MenuItem>
-        <MenuItem className="py-1"> Radio </MenuItem>
+        <MenuItem className="py-1"> Radio </MenuItem> */}
 
         <h2 className={`py-1 text-center text-gray-800 ${darkMode ? 'bg-[#f5f5f5]' : 'bg-black text-white'}`}>LIBRARY</h2>
         <NavLink to='/artist'> <MenuItem className="py-1"> Artists </MenuItem></NavLink>

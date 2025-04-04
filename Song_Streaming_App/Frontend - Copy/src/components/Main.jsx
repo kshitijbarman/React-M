@@ -233,9 +233,9 @@ const Main = () => {
                 >
                   Play
                 </button>
-                <button className="text-2xl cursor-pointer" onClick={() =>{sendData(song);handleLike(song.id)}}>
+                {/* <button className="text-2xl cursor-pointer" onClick={() =>{sendData(song);handleLike(song.id)}}>
                   <FaRegHeart  className={liked?"bg-red-600":"bg-white"}/>
-                </button>
+                </button> */}
                 <span className="text-black">{song.name}</span>
               </li>
             ))}
